@@ -1,0 +1,18 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>ButtonModel.qml</file>
+        <file>ButtonDelegate.qml</file>
+        <file>ScreenDelegate.qml</file>
+        <file>ScreenModel.qml</file>
+        <file>img/record.png</file>
+        <file>img/stop.png</file>
+        <file>img/addnew.png</file>
+        <file>StopRecordingButton.qml</file>
+        <file>StartRecordingButton.qml</file>
+        <file>ClearChoiceButton.qml</file>
+        <file>SelectCamerasButton.qml</file>
+        <file>img/del.png</file>
+        <file>ListDelegate.qml</file>
+    </qresource>
+</RCC>
