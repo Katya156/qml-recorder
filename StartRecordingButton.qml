@@ -7,14 +7,13 @@ Rectangle {
     id: startRec
     width: grid.cellWidth; height: grid.cellHeight * 0.4
     radius: 5
-    color: "#01004e"
-    border.width: 2
-    border.color: "#01004e"
-    anchors.right: choi.left
+    color: "lightgrey"
+    anchors.right: stopRec.left
     anchors.bottom: parent.bottom
     anchors.margins: 10
     Image{
         id: img2
+        //anchors.fill: parent
         anchors.centerIn: parent
         width: parent.height / 1.2
         height: parent.height / 1.2
@@ -32,11 +31,16 @@ Rectangle {
         id: startRecClick
         anchors.fill: parent
         onClicked: {
-            //appCore.StartRecording()
-            //appCore.addSelect(model.rtsp)
-            //appCore.buttonReact(model.rtsp, model.name)
-            //appCore.recStart()
-            parent.color = "#bea18d"
+////          из функции StartRecording надо вернуть 2 аргумента: кол-во памяти, занимаемой записями,
+////          и флаг начатия записи
+//            res = appCore.StartRecording()
+//            if (res[0] > максимальный объем доступной памяти)
+//                memorypopup.open()
+//            else
+////          тут вместо 0 вставить то, что возвращается при неуспешном начатии записи
+//                if(res[1] === 0)
+//                    popup.open()
+            parent.color = "#01004e"
         }
     }
 }

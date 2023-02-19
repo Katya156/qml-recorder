@@ -3,7 +3,7 @@ import QtQuick.Window 2.12
 import QtQuick.Controls 2.12
 import QtQuick.Layouts 1.12
 
-Component {
+Component { 
     id: screendelegate
     Rectangle {
         readonly property GridView view: GridView.view
@@ -12,9 +12,7 @@ Component {
         width: grid.cellWidth * 0.95
         height: grid.cellHeight * 0.95
         radius: 20
-        color: "#01004e"
-        border.width: 2
-        border.color: "#01004e"
+        color: "#d3d3d3"
         Text {
             id: gridText;
             text: model.name;
@@ -27,23 +25,44 @@ Component {
             font.bold: true
             wrapMode: Text.Wrap
         }
+        Rectangle {
+            id: circle
+            width: grid.cellWidth / 20
+            anchors.right: parent.right
+            anchors.top: parent.top
+            anchors.margins: 10
+            radius: width / 2
+            height: width
+            visible:  rec.color == "#01004e" ? true: false
+            color: startRec.color == "#01004e" ? "red" : "grey"
+        }
         MouseArea {
                 anchors.fill: parent
                 onPressAndHold: {
 //                    appCore.goToView(model.rtsp)
 
-                    for(i = 0; i < grid.count + 1; i++)
-                        grid.children[0].children[i].color = "#01004e"
-                    view.currentIndex = index
-                    view.currentItem.color = "#bea18d"
+                    var flag = 1;
+                    if (rec.color == "#d3d3d3" & flag) {
+                        rec.color = "#01004e";
+                        flag = 0;
+                    }
+                    if (rec.color == "#01004e" & flag) {
+                        rec.color = "#d3d3d3";
+                        flag = 0;
+                    }
                 }
                 onClicked: {
 //                    appCore.buttonReact(model.rtsp, model.name)
 
-                    for(i = 0; i < grid.count + 1; i++)
-                        grid.children[0].children[i].color = "#01004e"
-                    view.currentIndex = index
-                    view.currentItem.color = "#bea18d"
+                    var flag = 1;
+                    if (rec.color == "#d3d3d3" & flag) {
+                        rec.color = "#01004e";
+                        flag = 0;
+                    }
+                    if (rec.color == "#01004e" & flag) {
+                        rec.color = "#d3d3d3";
+                        flag = 0;
+                    }
                 }
             }
     }

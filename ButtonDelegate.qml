@@ -10,19 +10,19 @@ Component {
         property int i: 0
         id:rect
         radius: 10
-        height: 60
+        height: view.height / 8
         width: view.width
-        color: view.currentIndex == index ? "#bea18d" : "#ffecde"
+        color: view.currentIndex == index ? "#01004e" : "lightgrey"
         Text {
             id: buttonText
             width: parent.width
             height: parent.height
             text: model.name
-            font.pointSize: grid.cellWidth / 13
+            font.pointSize: width / 10
             verticalAlignment: Text.AlignVCenter
             horizontalAlignment: Text.AlignHCenter
             font.bold: true
-            color: view.currentIndex == index ? "white" : "#01004e"
+            color: view.currentIndex === index ? "white" : "#01004e"
             wrapMode: Text.Wrap
         }
         MouseArea {
@@ -33,8 +33,8 @@ Component {
 //                    appCore.getCams(buttonText.text)
 //                    videoModel.addCamera()
                     view.currentIndex = index
-                    for(i = 0; i < grid.count + 1; i++)
-                        grid.children[0].children[i].color = "#bea18d"
+//                    for(i = 0; i < grid.count + 1; i++)
+//                        grid.children[0].children[i].color = "#d3d3d3"
                 }
             }
     }

@@ -31,7 +31,7 @@ Window {
             Text {
                 anchors.centerIn: parent
                 text: "some information"
-                color: "#ffecde"
+                color: "white"
                 font.bold: true
             }
         }
@@ -40,12 +40,12 @@ Window {
             id: scrol
             width: parent.width * 0.2
             height: parent.height
-            color: "#01004e"
+            color: "white"
             ListView {
                 id: listview
                 anchors.fill: parent
                 anchors.margins: 15
-                spacing: 15
+                spacing: 25
                 model: ButtonModel{}
                 delegate: ButtonDelegate{}
 
@@ -56,19 +56,34 @@ Window {
             id: screen
             height: parent.height * 0.6
             width: parent.width - scrol.width
-            anchors.right: parent.right
-            color: "#ffecde"
+            anchors.left: scrol.right
+            anchors.top: parent.top
+            color: "white"
             GridView {
-                height: parent.heigh
                 id: grid
-                cellWidth: parent.width / 4 - 7.5
-                cellHeight: parent.height / 2 - 7.5
+                cellWidth: parent.width / 3 - 12
+                cellHeight: parent.height / 2 - 12
                 anchors.fill: parent
                 anchors.margins: 15
                 model: ScreenModel {}
                 delegate: ScreenDelegate {}
             }
         }
+//        Rectangle{
+//            id: settings
+//            width: parent.width * 0.05
+//            height: parent.height * 0.6
+//            anchors.right: parent.right
+//            anchors.top: parent.top
+//            color: "white"
+//            Rectangle{
+//                id: tools
+//                width: parent.width
+//                height: parent.height * 0.1
+//                color: "red"
+//            }
+//        }
+
 //        СПИСОК КАМЕР БЕЗ БЭКА
 //        ЕСЛИ РАСКОММЕНТИРОВАТЬ, ТО НУЖНО ПОМЕНЯТЬ У НИЖНЕГО RECTANGLE ВЫСОТУ НА (*0.15)
 
@@ -110,11 +125,23 @@ Window {
             width: parent.width - scrol.width
             anchors.right: parent.right
             anchors.bottom: parent.bottom
-            color: "#ffecde"
-            StopRecordingButton {id: choi}
+            color: "white"
+            StopRecordingButton {id: stopRec}
             StartRecordingButton {id: startRec}
             ClearChoiceButton {id: clearChoi}
-            SelectCamerasButton {id: select}
+//            SelectCamerasButton {id: select}
+        }
+        NotRecordPopup {
+            id: recordpopup
+        }
+        AFewMemoryPopup {
+            id: memorypopup
+        }
+        BreakCoderPopup {
+            id: breakcoderpopup
+        }
+        BreakCamsPopup {
+            id: breakcamspopup
         }
     }
 }
