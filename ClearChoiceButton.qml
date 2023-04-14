@@ -3,15 +3,27 @@ import QtQuick.Window 2.12
 import QtQuick.Controls 2.12
 import QtQuick.Layouts 1.12
 
-Rectangle {
+Button {
     id: clearChoi
-    width: grid.cellWidth; height: grid.cellHeight * 0.4
-    radius: 5
-    color: clearChoiClick.containsPress ? "#01004e" : "lightgrey"
     anchors.right: startRec.left
     anchors.bottom: parent.bottom
     anchors.left: parent.left
     anchors.margins: 10
+    ToolTip {
+        id: control
+        text: qsTr("Очистка выбора")
+        visible: hovered
+        contentItem: Text {
+            text: control.text
+            color: "black"
+        }
+
+        background: Rectangle {
+            color: "white"
+            border.color: "lightgrey"
+            radius: 4
+        }
+    }
     Image {
         id: img3
         anchors.centerIn: parent
@@ -19,11 +31,15 @@ Rectangle {
         height: parent.height / 1.2
         source: "./img/del.png"
     }
-    MouseArea {
-        id: clearChoiClick
-        anchors.fill: parent
-        onClicked: {
+    background: Rectangle{
+        id: recbutt1
+        radius: 4
+        implicitWidth: grid.cellWidth;
+        implicitHeight: grid.cellHeight * 0.4
+        color: clearChoi.pressed ? "#01004e" : "lightgrey"
+    }
+
+    onClicked: {
 //            appCore.clearSelected()
         }
-    }
 }

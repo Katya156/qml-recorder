@@ -18,12 +18,14 @@ Component {
             width: parent.width
             height: parent.height
             text: model.name
-            font.pointSize: width / 10
             verticalAlignment: Text.AlignVCenter
             horizontalAlignment: Text.AlignHCenter
             font.bold: true
             color: view.currentIndex === index ? "white" : "#01004e"
             wrapMode: Text.Wrap
+            fontSizeMode: Text.Fit
+            minimumPixelSize: 5
+            font.pixelSize: width / 8
         }
         MouseArea {
             id: buttmouse

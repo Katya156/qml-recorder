@@ -3,15 +3,27 @@ import QtQuick.Window 2.12
 import QtQuick.Controls 2.12
 import QtQuick.Layouts 1.12
 
-Rectangle {
-    property MouseArea i2: stopClick
+Button {
     id: stopRec
-    width: grid.cellWidth; height: grid.cellHeight * 0.4
-    radius: 5
-    color: stopClick.containsPress ? "#01004e" : "lightgrey"
     anchors.right: parent.right
+//    hoverEnabled: false
     anchors.bottom: parent.bottom
     anchors.margins: 10
+    ToolTip {
+        id: control3
+        text: qsTr("Остановка записи")
+        visible: hovered
+        contentItem: Text {
+            text: control3.text
+            color: "black"
+        }
+
+        background: Rectangle {
+            color: "white"
+            border.color: "lightgrey"
+            radius: 4
+        }
+    }
     Image {
         id: img1
         anchors.centerIn: parent
@@ -19,23 +31,20 @@ Rectangle {
         height: parent.height / 1.2
         source: "./img/stop.png"
     }
-//    Text {
-//        id: choitext;
-//        text: "exit";
-//        anchors.centerIn: parent;
-//        font.pointSize: grid.cellWidth / 15;
-//        font.bold: true;
-//        color: "white"
-//    }
-    MouseArea {
-        id: stopClick
-        anchors.fill: parent
-        onClicked: {
+    background: Rectangle{
+        id: recbutt3
+        color: stopRec.pressed ? "#01004e" : "lightgrey"
+        implicitHeight: grid.cellHeight * 0.4
+        implicitWidth: grid.cellWidth
+        radius: 4
+    }
+
+    onClicked: {
             //appCore.recStop()
             //appCore.addSelect(model.rtsp)
             //appCore.buttonReact(model.rtsp, model.name)
             //appCore.recStart()
-            startRec.color = "lightgrey"
+            startRec.background.color = "lightgrey"
+//            recordpopup.open()
         }
-    }
 }

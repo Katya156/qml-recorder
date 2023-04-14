@@ -12,52 +12,60 @@ Popup{
     focus: true
     closePolicy: Popup.NoAutoClose
     padding: 0
-    Rectangle{
-        width: parent.width
-        height: parent.height * 0.2
-        anchors.top: parent.top
-        color: "#01004e"
+    Overlay.modal: Rectangle {
+            color: "#ABABAB"
+        }
+    background: Rectangle{
+        id: first
+        color: "white"
+        radius: 8
         Text {
+            id: text1
             font.pointSize: 15
             text: "Error"
             font.bold: true
-            color: "white"
-            padding: 10
-            anchors.verticalCenter: parent.verticalCenter
+            color: "black"
+            anchors.top: parent.top
+            topPadding: 20
+            leftPadding: 20
         }
-    }
-    Button{
-        id: butt3
-        width: 80
-        height: 48
-        anchors.bottomMargin: 10
-        anchors.bottom: parent.bottom
-        anchors.horizontalCenter: parent.horizontalCenter
-        text: "OK"
-        contentItem: Text {
-            text: butt3.text
-            color: "#01004e"
-            font.pointSize: 15
-            font.bold: true
-            verticalAlignment: Text.AlignVCenter
-            horizontalAlignment: Text.AlignHCenter
-        }
-        background: Rectangle {
-            color: "lightgrey"
-        }
-        onClicked: {
-            breakcamspopup.close()
-        }
-    }
-
-    contentItem: Rectangle{
-        color: "white"
         Text {
-            font.pointSize: 15
+            font.pointSize: 12
             text: "The cameras are not working"
-            font.bold: true
-            color: "#01004e"
+            color: "black"
+            anchors.top: text1.bottom
+            padding: 20
+        }
+    }
+    Rectangle{
+        width: parent.width
+        height: parent.height * 0.4
+        anchors.bottom: parent.bottom
+        color: "lightgrey"
+        Button{
+            id: butt1
+            width: 150
+            height: 40
+            anchors.bottomMargin: 10
+            anchors.bottom: parent.bottom
             anchors.centerIn: parent
+            hoverEnabled: false
+            text: "OK"
+            contentItem: Text {
+                text: butt1.text
+                color: "white"
+                font.pointSize: 15
+                font.bold: true
+                verticalAlignment: Text.AlignVCenter
+                horizontalAlignment: Text.AlignHCenter
+            }
+            background: Rectangle {
+                color: "#01004e"
+                radius: 4
+            }
+            onClicked: {
+               breakcamspopup.close()
+            }
         }
     }
 }

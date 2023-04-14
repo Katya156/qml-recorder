@@ -11,13 +11,13 @@
         <file>StopRecordingButton.qml</file>
         <file>StartRecordingButton.qml</file>
         <file>ClearChoiceButton.qml</file>
-        <file>SelectCamerasButton.qml</file>
         <file>img/del.png</file>
-        <file>ListDelegate.qml</file>
         <file>NotRecordPopup.qml</file>
         <file>AFewMemoryPopup.qml</file>
         <file>BreakCoderPopup.qml</file>
         <file>BreakCamsPopup.qml</file>
         <file>img/preview.png</file>
+        <file>img/recorder.png</file>
+        <file>SettingsList.qml</file>
     </qresource>
 </RCC>

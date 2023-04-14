@@ -13,17 +13,32 @@ Component {
         height: grid.cellHeight * 0.95
         radius: 20
         color: "#d3d3d3"
+        Component.onCompleted : {
+//            if (rec.color == "#d3d3d3" & flag) {
+//                    rec.color = "#01004e";
+//                    flag = 0;
+//                }
+//            if (rec.color == "#01004e" & flag) {
+//                rec.color = "#d3d3d3";
+//                flag = 0;
+//            }
+              if (model.type == 1) {
+                    rec.color = "#01004e";
+              }
+        }
         Text {
             id: gridText;
             text: model.name;
             verticalAlignment: Text.AlignVCenter
             horizontalAlignment: Text.AlignHCenter
-            color: "white";
+            color: "#01004e";
             width: parent.width
             height: parent.height
-            font.pointSize: grid.cellWidth / 13
             font.bold: true
             wrapMode: Text.Wrap
+            fontSizeMode: Text.Fit
+            minimumPixelSize: 10
+            font.pixelSize: grid.cellWidth / 10
         }
         Rectangle {
             id: circle
@@ -34,22 +49,22 @@ Component {
             radius: width / 2
             height: width
             visible:  rec.color == "#01004e" ? true: false
-            color: startRec.color == "#01004e" ? "red" : "grey"
+            color: startRec.background.color == "#01004e" ? "red" : "grey"
         }
         MouseArea {
                 anchors.fill: parent
                 onPressAndHold: {
 //                    appCore.goToView(model.rtsp)
 
-                    var flag = 1;
-                    if (rec.color == "#d3d3d3" & flag) {
-                        rec.color = "#01004e";
-                        flag = 0;
-                    }
-                    if (rec.color == "#01004e" & flag) {
-                        rec.color = "#d3d3d3";
-                        flag = 0;
-                    }
+//                    var flag = 1;
+//                    if (rec.color == "#d3d3d3" & flag) {
+//                        rec.color = "#01004e";
+//                        flag = 0;
+//                    }
+//                    if (rec.color == "#01004e" & flag) {
+//                        rec.color = "#d3d3d3";
+//                        flag = 0;
+//                    }
                 }
                 onClicked: {
 //                    appCore.buttonReact(model.rtsp, model.name)
@@ -57,10 +72,12 @@ Component {
                     var flag = 1;
                     if (rec.color == "#d3d3d3" & flag) {
                         rec.color = "#01004e";
+                        gridText.color = "white";
                         flag = 0;
                     }
                     if (rec.color == "#01004e" & flag) {
                         rec.color = "#d3d3d3";
+                        gridText.color = "#01004e";
                         flag = 0;
                     }
                 }
